@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">KoLJo</string>
+    <string name="number_free_bikes">Free bikes</string>
+    <string name="number_free_spaces">Free spaces</string>
+    <string name="dialog_text_title">No network connection</string>
+    <string name="dialog_text_content">Cannot connect to Internet. Pleas check your connection settings and try again</string>
+    <string name="button_ok">OK</string>
+    <string name="button_settings">Settings</string>
+
+</resources>

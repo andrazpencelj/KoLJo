@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/info_fragment_container"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/station_info"
+    android:padding="10dip"
+    >
+
+    <TextView
+        android:id="@+id/station_name"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_weight="1"
+        android:ellipsize="start"
+        android:textColor="#444444"
+        android:textSize="15dip"/>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dip">
+
+    <ImageView
+        android:id="@+id/station_image"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_vertical"/>
+
+        <TableLayout
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:stretchColumns="1"
+            android:padding="5dip">
+
+            <TableRow>
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:gravity="center"
+                        android:textColor="#444444"
+                        android:textSize="12dip"
+                        android:text="@string/number_free_bikes"/>
+
+                    <TextView
+                        android:id="@+id/station_free_bikes"
+                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:textColor="#98BF31"
+                        android:textSize="24dip"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:gravity="center"
+                        android:textColor="#444444"
+                        android:textSize="12dip"
+                        android:text="@string/number_free_spaces"/>
+
+                    <TextView
+                        android:id="@+id/station_free_spaces"
+                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:textColor="#FF4D4D"
+                        android:textSize="24dip"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

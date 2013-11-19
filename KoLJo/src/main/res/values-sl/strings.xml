@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">KoLJo</string>
+    <string name="number_free_bikes">Prosta kolesa</string>
+    <string name="number_free_spaces">Prosta mesta</string>
+    <string name="dialog_text_title">Ni omrežne povezave</string>
+    <string name="dialog_text_content">Aplikacija se ni mogla povezati z internetom. Preverite nastavitve povezav in poskusite znova</string>
+    <string name="button_ok">Vredu</string>
+    <string name="button_settings">Nastavitve</string>
+
+</resources>
