@@ -8,6 +8,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -24,20 +25,6 @@ public class MapActivity extends ActionBarActivity implements StationMapFragment
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_layout);
-        //preverimo ce ima aplikacija do spleta
-        if (checkConnection()){
-            //naprava je povezana zato prikazemo karto
-            if (getSupportFragmentManager().findFragmentByTag("MAP") == null){
-                getSupportFragmentManager().beginTransaction()
-                        .add(R.id.container, new StationMapFragment(),"MAP")
-                        .commit();
-            }
-        }
-        else{
-            //naprava ni povezana zato prikazemo obvestilo
-            ConnectionDialogFragment dialog = new ConnectionDialogFragment();
-            dialog.show(getSupportFragmentManager(),"CONNECTION");
-        }
     }
 
     @Override
@@ -45,6 +32,31 @@ public class MapActivity extends ActionBarActivity implements StationMapFragment
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        if (getSupportFragmentManager().findFragmentByTag("MAP") == null){
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.container, new StationMapFragment(),"MAP")
+                    .commit();
+        }
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        //preverimo ce ima aplikacija do spleta
+        if (checkConnection()){
+            StationMapFragment fragment = (StationMapFragment)getSupportFragmentManager().findFragmentByTag("MAP");
+            fragment.getServerData();
+        }
+        else{
+            //naprava ni povezana zato prikazemo obvestilo
+            ConnectionDialogFragment dialog = new ConnectionDialogFragment();
+            dialog.show(getSupportFragmentManager(),"CONNECTION");
+        }
     }
 
     @Override

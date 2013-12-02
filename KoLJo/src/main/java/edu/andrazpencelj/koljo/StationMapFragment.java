@@ -49,6 +49,7 @@ public class StationMapFragment extends Fragment implements GoogleMap.InfoWindow
     private GoogleMap mGoogleMap;
     private RequestQueue mRequestQueue;
     private ProgressBar mProgressBar;
+    private final String REQUEST_TAG = "KOLJO_REQUEST";
 
     /* implementiramo interface za ugotavljanje dogodkov */
     OnMapMarkerClickListener mCallback;
@@ -77,12 +78,12 @@ public class StationMapFragment extends Fragment implements GoogleMap.InfoWindow
         mProgressBar.setIndeterminate(true);
         mProgressBar.setVisibility(View.VISIBLE);
         setStartLocationOfMap();
-        getServerData();
     }
 
     @Override
     public void onPause(){
-        mRequestQueue.cancelAll(StationMapFragment.class);
+        super.onPause();
+        mRequestQueue.cancelAll(REQUEST_TAG);
     }
 
     @Override
@@ -159,7 +160,7 @@ public class StationMapFragment extends Fragment implements GoogleMap.InfoWindow
                 Log.d("ERROR", volleyError.toString());
             }
         });
-        jsonObjectRequest.setTag(StationMapFragment.class);
+        jsonObjectRequest.setTag(REQUEST_TAG);
         mRequestQueue.add(jsonObjectRequest);
     }
 
